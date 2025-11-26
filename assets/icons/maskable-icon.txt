@@ -1,0 +1,5 @@
+/* Placeholder for maskable-icon.png 
+   Please replace this file with a 512x512 PNG maskable icon
+   Important: Leave 10% safe zone padding around the icon
+   Recommended design: Sound waveform with purple/blue gradient on solid background
+   Use any graphic design tool to create the icon */
