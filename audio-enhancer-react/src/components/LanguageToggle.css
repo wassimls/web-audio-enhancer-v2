@@ -1,0 +1,25 @@
+/* Language Toggle Button */
+.language-toggle {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lang-text {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.language-toggle:hover .lang-text {
+    transform: scale(1.1);
+}
+
+body.dark-mode .lang-text {
+    color: var(--text-primary);
+}

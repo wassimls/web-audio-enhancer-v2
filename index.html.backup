@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="تطبيق احترافي لتحسين الصوت مع تنقية وفلاتر صوتية متقدمة - Professional audio enhancement with noise reduction and advanced filters">
+    <meta name="keywords" content="audio enhancer, noise reduction, audio filters, تحسين الصوت, تنقية الصوت">
+    <meta name="author" content="Audio Enhancer Team">
+
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Audio Enhancer">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/icon-512.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Audio Enhancer - محسّن الصوت الاحترافي</title>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="/" class="logo">
+                        <span class="logo-icon">🎵</span>
+                        <span>Audio Enhancer</span>
+                    </a>
+
+                    <div class="header-actions">
+                        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                            <span id="theme-icon">🌙</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <div class="file-details">
+                    <h4 id="file-name">audio.mp3</h4>
+                    <p class="file-meta">
+                        <span id="file-size">5.2 MB</span> •
+                        <span id="file-duration">3:45</span>
+                    </p>
+                </div>
+            </div>
+            <button class="file-remove-btn" id="file-remove-btn" aria-label="Remove file">✕</button>
+    </div>
+    </div>
+    </section>
+
+    <!-- Waveform & Playback Section -->
+    <section class="section hidden" id="waveform-section">
+        <h2 class="section-title">المعاينة والتحكم</h2>
+
+        <div class="card">
+            <div class="waveform-container">
+                <canvas id="waveform-canvas"></canvas>
+
+                <div class="playback-controls">
+                    <button class="playback-btn secondary" id="stop-btn" title="Stop">⏹</button>
+                    <button class="playback-btn" id="play-pause-btn" title="Play/Pause">▶️</button>
+                    <button class="playback-btn secondary" id="loop-btn" title="Loop">🔁</button>
+                    <div class="time-display">
+                        <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presets Section -->
+    <section class="section hidden" id="presets-section">
+        <h2 class="section-title">القوالب الجاهزة</h2>
+        <p class="section-description">اختر قالباً جاهزاً للحصول على أفضل النتائج</p>
+
+        <div class="presets-container">
+            <div class="preset-btn" data-preset="voice">
+                <div class="preset-name">🎙️ تحسين الصوت</div>
+                <div class="preset-description">لتسجيلات الصوت والبودكاست</div>
+            </div>
+            <div class="preset-btn" data-preset="music">
+                <div class="preset-name">🎵 موسيقى</div>
+                <div class="preset-description">للمقطوعات الموسيقية</div>
+            </div>
+            <div class="preset-btn" data-preset="podcast">
+                <div class="preset-name">🎧 بودكاست</div>
+                <div class="preset-description">للبودكاست والمحادثات</div>
+            </div>
+            <div class="preset-btn" data-preset="custom">
+                <div class="preset-name">⚙️ مخصص</div>
+                <div class="preset-description">إعدادات يدوية</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noise Reduction Section -->
+    <section class="section hidden" id="noise-section">
+        <h2 class="section-title">تنقية الصوت</h2>
+
+        <div class="card filter-card" id="noise-card">
+            <div class="filter-header">
+                <h3 class="filter-title">
+                    <span class="filter-icon">🎯</span>
+                    إزالة الضوضاء
+                </h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="noise-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="card-body">
+                <div class="slider-control">
+                    <div class="slider-label">
+                        <span>مستوى التنقية</span>
+                        <span class="slider-value" id="noise-level-value">50%</span>
+                    </div>
+                    <input type="range" class="slider" id="noise-level" min="0" max="100" value="50">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="section hidden" id="filters-section">
+        <h2 class="section-title">الفلاتر الصوتية</h2>
+
+        <div class="filters-grid">
+
+            <!-- Equalizer -->
+            <div class="filter-card" id="eq-card">
+                <div class="filter-header">
+                    <h3 class="filter-title">
+                        <span class="filter-icon">🎛️</span>
+                        معادل الصوت
+                    </h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="eq-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="card-body">
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>Bass (40Hz)</span>
+                            <span class="slider-value" id="eq-bass-value">0 dB</span>
+                        </div>
+                        <input type="range" class="slider" id="eq-bass" min="-12" max="12" value="0">
+                    </div>
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>Mid (1kHz)</span>
+                            <span class="slider-value" id="eq-mid-value">0 dB</span>
+                        </div>
+                        <input type="range" class="slider" id="eq-mid" min="-12" max="12" value="0">
+                    </div>
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>Treble (8kHz)</span>
+                            <span class="slider-value" id="eq-treble-value">0 dB</span>
+                        </div>
+                        <input type="range" class="slider" id="eq-treble" min="-12" max="12" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compressor -->
+            <div class="filter-card" id="compressor-card">
+                <div class="filter-header">
+                    <h3 class="filter-title">
+                        <span class="filter-icon">📊</span>
+                        الضاغط
+                    </h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="compressor-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="card-body">
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>Threshold</span>
+                            <span class="slider-value" id="compressor-threshold-value">-24 dB</span>
+                        </div>
+                        <input type="range" class="slider" id="compressor-threshold" min="-60" max="0" value="-24">
+                    </div>
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>Ratio</span>
+                            <span class="slider-value" id="compressor-ratio-value">4:1</span>
+                        </div>
+                        <input type="range" class="slider" id="compressor-ratio" min="1" max="20" value="4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reverb -->
+            <div class="filter-card" id="reverb-card">
+                <div class="filter-header">
+                    <h3 class="filter-title">
+                        <span class="filter-icon">🎪</span>
+                        الصدى
+                    </h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="reverb-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="card-body">
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>مستوى الصدى</span>
+                            <span class="slider-value" id="reverb-level-value">30%</span>
+                        </div>
+                        <input type="range" class="slider" id="reverb-level" min="0" max="100" value="30">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bass Boost -->
+            <div class="filter-card" id="bass-card">
+                <div class="filter-header">
+                    <h3 class="filter-title">
+                        <span class="filter-icon">🔊</span>
+                        تعزيز الباص
+                    </h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="bass-boost-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="card-body">
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>مستوى التعزيز</span>
+                            <span class="slider-value" id="bass-boost-value">0 dB</span>
+                        </div>
+                        <input type="range" class="slider" id="bass-boost" min="0" max="12" value="0">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Export Section -->
+    <section class="section hidden" id="export-section">
+        <h2 class="section-title">التصدير والتحميل</h2>
+
+        <div class="card">
+            <div class="export-options">
+                <div class="export-option">
+                    <label class="export-label" for="export-format">صيغة الملف</label>
+                    <select class="export-select" id="export-format">
+                        <option value="mp3">MP3</option>
+                        <option value="wav">WAV</option>
+                        <option value="ogg">OGG</option>
+                    </select>
+                </div>
+
+                <div class="export-option">
+                    <label class="export-label" for="export-quality">الجودة</label>
+                    <select class="export-select" id="export-quality">
+                        <option value="128">128 kbps</option>
+                        <div class="container">
+                            <p>&copy; 2025 Audio Enhancer - جميع الحقوق محفوظة</p>
+                        </div>
+                        </footer>
+                </div>
+
+                <!-- Loading Overlay (hidden by default) -->
+                <div class="hidden" id="loading-overlay">
+                    <div class="loading-spinner"></div>
+                </div>
+
+                <!-- Scripts -->
+                <script src="/js/utils.js"></script>
+                <script src="/js/pwa-manager.js"></script>
+                <script src="/js/audio-processor.js"></script>
+                <script src="/js/filters.js"></script>
+                <script src="/js/noise-reduction.js"></script>
+                <script src="/js/presets.js"></script>
+                <script src="/js/ui-controller.js"></script>
+                <script src="/js/app.js"></script>
+</body>
+
+</html>

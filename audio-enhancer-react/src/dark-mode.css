@@ -1,0 +1,172 @@
+/* Dark Mode - Neumorphic Dark Theme */
+body.dark-mode {
+    /* Dark Neumorphism Colors */
+    --bg-main: #2c3e50;
+    --bg-card: #2c3e50;
+    --bg-elevated: #34495e;
+
+    /* Dark Shadows */
+    --shadow-dark: #1a252f;
+    --shadow-light: #3e5266;
+    --shadow-neu-out: 8px 8px 16px #1a252f, -8px -8px 16px #3e5266;
+    --shadow-neu-sm: 4px 4px 8px #1a252f, -4px -4px 8px #3e5266;
+    --shadow-neu-lg: 12px 12px 24px #1a252f, -12px -12px 24px #3e5266;
+    --shadow-neu-inset: inset 5px 5px 10px #1a252f, inset -5px -5px 10px #3e5266;
+
+    /* Text Colors */
+    --text-primary: #e0e6ed;
+    --text-secondary: #b8c5d0;
+    --text-muted: #8a98a5;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle i {
+    font-size: 1.125rem;
+    transition: transform 0.5s ease;
+}
+
+.theme-toggle:hover i {
+    transform: rotate(20deg);
+}
+
+body.dark-mode .theme-toggle i {
+    color: #fbbf24;
+}
+
+/* Dark Mode - Card Adjustments */
+body.dark-mode .card {
+    background: var(--bg-card);
+    box-shadow: var(--shadow-neu-out);
+}
+
+body.dark-mode .card:hover {
+    box-shadow: var(--shadow-neu-lg);
+}
+
+/* Dark Mode - Button Adjustments */
+body.dark-mode .btn {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-neu-sm);
+}
+
+body.dark-mode .btn:hover {
+    box-shadow: var(--shadow-neu-out);
+}
+
+body.dark-mode .btn:active {
+    box-shadow: var(--shadow-neu-inset);
+}
+
+body.dark-mode .btn-primary {
+    background: linear-gradient(145deg, #5a7ff0, #4169e1);
+    color: white;
+    box-shadow: 6px 6px 12px #1a252f, -6px -6px 12px rgba(94, 143, 240, 0.1);
+}
+
+body.dark-mode .btn-primary:hover {
+    box-shadow: 8px 8px 16px #1a252f, -8px -8px 16px rgba(94, 143, 240, 0.15);
+}
+
+/* Dark Mode - Input Fields */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="number"],
+body.dark-mode textarea,
+body.dark-mode select {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-neu-inset);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: var(--text-muted);
+}
+
+/* Dark Mode - Range Slider */
+body.dark-mode input[type="range"] {
+    background: var(--bg-card);
+    box-shadow: var(--shadow-neu-inset);
+}
+
+body.dark-mode input[type="range"]::-webkit-slider-thumb {
+    background: var(--bg-card);
+    box-shadow: 4px 4px 8px #1a252f, -4px -4px 8px #3e5266;
+}
+
+body.dark-mode input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 6px 6px 12px #1a252f, -6px -6px 12px #3e5266;
+}
+
+/* Dark Mode - Toggle Switch */
+body.dark-mode .toggle-slider {
+    background: var(--bg-card);
+    box-shadow: var(--shadow-neu-inset);
+}
+
+body.dark-mode .toggle-slider:before {
+    background: var(--bg-card);
+    box-shadow: 3px 3px 6px #1a252f, -3px -3px 6px #3e5266;
+}
+
+body.dark-mode input:checked+.toggle-slider:before {
+    background: linear-gradient(145deg, #5a7ff0, #4169e1);
+    box-shadow: 4px 4px 8px rgba(65, 105, 225, 0.3), -2px -2px 6px rgba(94, 143, 240, 0.2);
+}
+
+/* Dark Mode - Badge */
+body.dark-mode .badge {
+    background: var(--bg-card);
+    box-shadow: var(--shadow-neu-sm);
+    color: var(--text-primary);
+}
+
+body.dark-mode .badge-success {
+    background: linear-gradient(145deg, #4ade80, #22c55e);
+    color: white;
+    box-shadow: 4px 4px 8px rgba(74, 222, 128, 0.2), -4px -4px 8px rgba(94, 143, 240, 0.05);
+}
+
+/* Dark Mode - Scrollbar */
+body.dark-mode ::-webkit-scrollbar-track {
+    background: var(--bg-card);
+    box-shadow: var(--shadow-neu-inset);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #5a7ff0, #4169e1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Mode - Specific Components */
+body.dark-mode .card-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .card-title i {
+    color: var(--primary);
+}
+
+/* Smooth Transition */
+body,
+.app,
+.card,
+.btn,
+input,
+textarea,
+select {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}

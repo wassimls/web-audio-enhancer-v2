@@ -1,0 +1,88 @@
+@import './ComparisonSlider.css';
+
+.advanced-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.file-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(160, 174, 192, 0.2);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.info-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Format Selector */
+.format-selector {
+    padding: 0.625rem 1rem;
+    border-radius: var(--border-radius-sm);
+    border: none;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-neu-inset);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.format-selector:hover {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -2px -2px 6px var(--shadow-light);
+}
+
+.format-selector:focus {
+    outline: none;
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -2px -2px 6px var(--shadow-light), 0 0 0 3px rgba(65, 105, 225, 0.1);
+}
+
+.format-selector option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: 0.5rem;
+}
+
+.format-selector:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .format-selector {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-neu-inset);
+}
+
+body.dark-mode .format-selector option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}

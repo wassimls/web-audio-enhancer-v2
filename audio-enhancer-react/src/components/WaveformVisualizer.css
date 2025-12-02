@@ -1,0 +1,25 @@
+.waveform-card {
+    min-height: 300px;
+}
+
+.waveform-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.waveform-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.waveform-canvas:hover {
+    opacity: 0.9;
+}
