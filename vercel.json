@@ -1,0 +1,12 @@
+{
+    "buildCommand": "cd audio-enhancer-react && npm install && npm run build",
+    "outputDirectory": "audio-enhancer-react/dist",
+    "installCommand": "cd audio-enhancer-react && npm install",
+    "framework": "vite",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
